@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
 	// Ending the response
 	res.end()
 })
+app.get('/home',(req,res) =>{
+  res.send('Welcome to home page')
+})
 
 // Establishing the port
 const PORT = process.env.PORT ||5000;
