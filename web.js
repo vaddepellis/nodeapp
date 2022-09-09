@@ -1,14 +1,20 @@
-const http = require('http');
-const hostname =  'https://sk-nodeapp.herokuapp.com';
-const PORT = process.env.PORT || 5000
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!\n');
-});
+// Importing express module
+const express = require('express');
+const app = express();
 
-server.listen(PORT,hostname, () => console.log(`Listening on ${hostname}:${ PORT }`))
-//listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}`);
-// //   console.log(`Server running at http://${hostname}:${port}/`);
-// });
+// Getting Request
+app.get('/', (req, res) => {
+
+	// Sending the response
+	res.send('Hello World!')
+	
+	// Ending the response
+	res.end()
+})
+
+// Establishing the port
+const PORT = process.env.PORT ||5000;
+
+// Executing the server on given port number
+app.listen(PORT, console.log(
+`Server started on port ${PORT}`));
