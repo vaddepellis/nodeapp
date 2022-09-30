@@ -1,12 +1,12 @@
 let receiver_ip;
 let receiver_ip_address;
 let webSocket;
-$.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
-  console.log(JSON.stringify(data.ipAddress, null, 2));
-  sender_ip = JSON.stringify(data.ipAddress, null, 2)
-  receiver_ip_address = sender_ip.replace(/['"]+/g, '')
-  webSocket = new WebSocket("ws://"+receiver_ip_address+":4000")
-});
+// $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+//   console.log(JSON.stringify(data.ipAddress, null, 2));
+//   sender_ip = JSON.stringify(data.ipAddress, null, 2)
+//   receiver_ip_address = sender_ip.replace(/['"]+/g, '')
+// });
+webSocket = new WebSocket("ws://"+rip+":4000")
 
 
 

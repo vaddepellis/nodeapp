@@ -2,22 +2,29 @@ var express = require('express');
 var app = express();
 const Socket = require("websocket").server
 const http = require("http") 
+const expressip = require('express-ip');
 const server = http.createServer(app)
+app.use(expressip().getIpInfoMiddleware)
 const PORT = process.env.PORT ||4000
     server.listen(PORT, function() {
         console.log('listening to port 4000')
+        
     });
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
-app.get('/', (req, res)=>{
 
-    res.render('sender', {name:'Akashdeep'});
+
+app.get('/', (req, res)=>{
+    
+    console.log(req.ipInfo.ip);
+    res.render('sender', {ip_address:req.ipInfo.ip});
      
     });
 app.get('/receiver', (req, res)=>{
-
-        res.render('receiver', {name:'Akashdeep'});
+    
+    console.log();
+        res.render('receiver', {ip_address:req.ipInfo.ip});
          
         });
 
