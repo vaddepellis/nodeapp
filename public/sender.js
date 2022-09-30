@@ -8,7 +8,7 @@ let webSocket;
 //   sender_ip_address = sender_ip.replace(/['"]+/g, '');
 //   console.log(sender_ip)
 // });
-webSocket = new WebSocket("wss://"+sip+":4000")
+webSocket = new WebSocket("wss://"+sip)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
