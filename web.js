@@ -1,19 +1,28 @@
+var express = require('express');
+var app = express();
 const Socket = require("websocket").server
-const http = require("http")
-const express = require('express')
-const app = express()
+const http = require("http") 
+const server = http.createServer(app)
+const PORT = process.env.PORT ||4000
+    server.listen(PORT, function() {
+        console.log('listening to port 4000')
+    });
+// Set EJS as templating engine
+app.set('view engine', 'ejs');
+app.use(express.static('public'))
+app.get('/', (req, res)=>{
 
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+    res.render('sender', {name:'Akashdeep'});
+     
+    });
+app.get('/receiver', (req, res)=>{
 
-const server = http.createServer((req, res) => {})
-const PORT = process.env.PORT ||3000
-server.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}...`)
-})
+        res.render('receiver', {name:'Akashdeep'});
+         
+        });
 
+        
+        
 const webSocket = new Socket({ httpServer: server })
 
 let users = []
@@ -118,6 +127,20 @@ function findUser(username) {
     }
 }
 
+    
+
+// const express = require('express')
+// const app = express()
+// const Socket = require("websocket").server
+// const http = require("http")
+
+// const server = http.createServer((req, res) => {})
+// const PORT = process.env.PORT ||3000
+
+
+// server.listen(PORT, () => {
+//     console.log(`Listening on port ${PORT}...`)
+// })
 
 
 
@@ -128,28 +151,26 @@ function findUser(username) {
 
 
 
+// // // Importing express module
+// // const express = require('express');
+// // const app = express();
 
+// // // Getting Request
+// // app.get('/', (req, res) => {
 
-// // Importing express module
-// const express = require('express');
-// const app = express();
-
-// // Getting Request
-// app.get('/', (req, res) => {
-
-// 	// Sending the response
-// 	res.send('Hello World!')
+// // 	// Sending the response
+// // 	res.send('Hello World!')
 	
-// 	// Ending the response
-// 	res.end()
-// })
-// app.get('/home',(req,res) =>{
-//   res.send('Welcome to home page')
-// })
+// // 	// Ending the response
+// // 	res.end()
+// // })
+// // app.get('/home',(req,res) =>{
+// //   res.send('Welcome to home page')
+// // })
 
-// // Establishing the port
-// const PORT = process.env.PORT ||5000;
+// // // Establishing the port
+// // const PORT = process.env.PORT ||5000;
 
-// // Executing the server on given port number
-// app.listen(PORT, console.log(
-// `Server started on port ${PORT}`));
+// // // Executing the server on given port number
+// // app.listen(PORT, console.log(
+// // `Server started on port ${PORT}`));

@@ -4,6 +4,7 @@
   "description": "node js websocket app.",
   "main": "web.js",
   "scripts": {
+    "build": "browserify server.js -o bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node web.js"
   },
@@ -17,9 +18,14 @@
     "node": "16.x"
   },
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "http": "^0.0.1-security",
     "socket.io": "^4.5.2",
     "websocket": "^1.0.34"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "nodemon": "^2.0.20"
   }
 }
