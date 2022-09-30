@@ -9,7 +9,7 @@ let webSocket;
 //   console.log(sender_ip)
 // });
 webSocket = new WebSocket("wss://"+sip+":4000")
-
+webSocket.onopen = () => conn.send("Message");
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
 }
