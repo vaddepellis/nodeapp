@@ -1,6 +1,12 @@
 const Socket = require("websocket").server
 const http = require("http")
+const express = require('express')
+const app = express()
 
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', (req, res) => {
+  res.send('hello world')
+})
 
 const server = http.createServer((req, res) => {})
 const PORT = process.env.PORT ||3000
