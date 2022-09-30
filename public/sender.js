@@ -9,7 +9,7 @@ let webSocket;
 //   console.log(sender_ip)
 // });
 webSocket = new WebSocket("wss://"+sip+":4000")
-webSocket.onopen = () => conn.send("Message");
+
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
 }
@@ -84,10 +84,13 @@ function startCall() {
         peerConn.onicecandidate = ((e) => {
             if (e.candidate == null)
                 return
-            sendData({
-                type: "store_candidate",
-                candidate: e.candidate
-            })
+            webSocket.onopen = () => {
+                sendData({
+                    type: "store_candidate",
+                    candidate: e.candidate
+                })
+            };
+            
             
 
         })
