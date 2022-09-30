@@ -2,7 +2,7 @@ let receiver_ip;
 let receiver_ip_address;
 let webSocket;
 
-webSocket = new WebSocket("ws://"+rip+":4000")
+webSocket = new WebSocket("wss://"+rip+":4000")
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))

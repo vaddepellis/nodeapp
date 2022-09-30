@@ -8,7 +8,7 @@ let webSocket;
 //   sender_ip_address = sender_ip.replace(/['"]+/g, '');
 //   console.log(sender_ip)
 // });
-webSocket = new WebSocket("ws://"+sip+":4000")
+webSocket = new WebSocket("wss://"+sip+":4000")
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
@@ -36,8 +36,8 @@ function sendUsername() {
 function sendData(data) {
     data.username = username
     console.log(data);
-    let conn =  new WebSocket("ws://"+sip+":4000");
-    conn.onopen();
+    // let conn =  new WebSocket("wss://"+sip+":4000");
+    // conn.onopen();
     // conn.onmessage = function(e){ console.log(e.data); };
     // conn.onopen = () => conn.send('hello');
     webSocket.send(JSON.stringify(data))
