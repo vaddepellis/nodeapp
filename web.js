@@ -14,8 +14,12 @@ const PORT = process.env.PORT ||4000
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-
 app.get('/', (req, res)=>{
+    
+    res.send('<h1>Welcome to Node JS APP');
+     
+    });
+app.get('/joining-room', (req, res)=>{
     
     res.render('sender', {ip_address:req.ipInfo.ip});
      
