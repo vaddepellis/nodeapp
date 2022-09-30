@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-const Socket = require("websocket").server
+const Socket = require("socket.io").server
 const http = require("http") 
 const expressip = require('express-ip');
 const server = http.createServer(app)
