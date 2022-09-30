@@ -85,10 +85,18 @@ function startCall() {
             if (e.candidate == null)
                 return
             webSocket.onopen = () => {
-                sendData({
+                // sendData({
+                //     type: "store_candidate",
+                //     candidate: e.candidate
+                // })
+                let data = {
                     type: "store_candidate",
                     candidate: e.candidate
-                })
+                }
+                data.username = username
+ 
+ 
+                webSocket.send(JSON.stringify(data))
             };
             
             
