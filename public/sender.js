@@ -36,6 +36,10 @@ function sendUsername() {
 function sendData(data) {
     data.username = username
     console.log(data);
+    let conn =  new WebSocket("ws://"+sip+":4000");
+    conn.onopen();
+    // conn.onmessage = function(e){ console.log(e.data); };
+    // conn.onopen = () => conn.send('hello');
     webSocket.send(JSON.stringify(data))
 }
 
@@ -84,6 +88,8 @@ function startCall() {
                 type: "store_candidate",
                 candidate: e.candidate
             })
+            
+
         })
 
         createAndSendOffer()
