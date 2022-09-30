@@ -17,13 +17,11 @@ app.use(express.static('public'))
 
 app.get('/', (req, res)=>{
     
-    console.log(req.ipInfo.ip);
     res.render('sender', {ip_address:req.ipInfo.ip});
      
     });
 app.get('/receiver', (req, res)=>{
     
-    console.log();
         res.render('receiver', {ip_address:req.ipInfo.ip});
          
         });
