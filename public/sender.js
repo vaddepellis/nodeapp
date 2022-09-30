@@ -36,10 +36,7 @@ function sendUsername() {
 function sendData(data) {
     data.username = username
     console.log(data);
-    // let conn =  new WebSocket("wss://"+sip+":4000");
-    // conn.onopen();
-    // conn.onmessage = function(e){ console.log(e.data); };
-    // conn.onopen = () => conn.send('hello');
+
     webSocket.send(JSON.stringify(data))
 }
 
@@ -84,21 +81,10 @@ function startCall() {
         peerConn.onicecandidate = ((e) => {
             if (e.candidate == null)
                 return
-            webSocket.onopen = () => {
-                // sendData({
-                //     type: "store_candidate",
-                //     candidate: e.candidate
-                // })
-                let data = {
-                    type: "store_candidate",
-                    candidate: e.candidate
-                }
-                data.username = username
- 
- 
-                webSocket.send(JSON.stringify(data))
-            };
-            
+            sendData({
+                type: "store_candidate",
+                candidate: e.candidate
+            })
             
 
         })
