@@ -35,6 +35,7 @@ function sendUsername() {
 
 function sendData(data) {
     data.username = username
+    console.log(data);
     webSocket.send(JSON.stringify(data))
 }
 
