@@ -47,7 +47,7 @@
     var port = "<%=port%>";
     
 
-    const webSocket = new WebSocket(`wss://${sip}:${port}`)
+    const webSocket = new WebSocket(`wss://192.168.1.2:${port}`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
