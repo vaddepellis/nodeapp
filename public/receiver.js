@@ -1,8 +1,4 @@
-let receiver_ip;
-let receiver_ip_address;
-let webSocket;
-
-webSocket = new WebSocket("wss://"+rip)
+const webSocket = new WebSocket(`wss://${rip}:${port}`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))

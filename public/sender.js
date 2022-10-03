@@ -1,14 +1,4 @@
-let sender_ip;
-let sender_ip_address;
-let webSocket;
-
-// $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
-//   console.log(JSON.stringify(data.ipAddress, null, 2));
-//   sender_ip = JSON.stringify(data.ipAddress, null, 2)
-//   sender_ip_address = sender_ip.replace(/['"]+/g, '');
-//   console.log(sender_ip)
-// });
-webSocket = new WebSocket("wss://"+sip)
+const webSocket = new WebSocket(`wss://${sip}:${port}`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
