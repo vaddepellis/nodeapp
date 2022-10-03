@@ -20,11 +20,8 @@
         object-fit: cover;
     }
 </style>
-<script>
-  let sip = "<%=ip_address%>"
-  console.log(sip)
-</script>
-<script src="/sender.js" defer></script>
+
+
 </head>
  
 <body>
@@ -44,5 +41,11 @@
             <button onclick="muteAudio()">Mute Audio</button>
         </div>
     </div>
+<script src="./sender.js" ></script>
+<script>
+    var sip = "<%=ip_address%>";
+    var port = "<%=port%>";
+    
+</script>
 </body>
 </html>

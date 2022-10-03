@@ -2,10 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script>
-            let rip = "<%=ip_address%>"
-            console.log(rip)
-          </script>
+        
     </head>
     <body>
         <div>
@@ -24,6 +21,11 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="./receiver.js"></script>
+        <script>
+            var rip = "<%=ip_address%>";
+            var port = "<%=port%>";
+            
+        </script>
     </body>
 
 </html>

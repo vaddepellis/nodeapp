@@ -21,12 +21,12 @@ app.get('/', (req, res)=>{
     });
 app.get('/joining-room', (req, res)=>{
     
-    res.render('sender', {ip_address:req.ipInfo.ip});
+    res.render('sender', {ip_address:req.ipInfo.ip,port:PORT});
      
     });
 app.get('/receiver', (req, res)=>{
     
-        res.render('receiver', {ip_address:req.ipInfo.ip});
+        res.render('receiver', {ip_address:req.ipInfo.ip,port:PORT});
          
         });
 
