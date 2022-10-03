@@ -45,9 +45,9 @@
 <script>
     var sip = "<%=ip_address%>";
     var port = "<%=port%>";
-    
+    console.log(port);
 
-    const webSocket = new WebSocket(`wss://122.181.36.245:${port}`)
+    const webSocket = new WebSocket(`wss://127.0.0.1:${port}`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
