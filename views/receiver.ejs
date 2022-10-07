@@ -56,7 +56,8 @@ function createAndSendAnswer () {
 
 function sendData(data) {
     data.username = username
-    webSocket.send(JSON.stringify(data))
+    // webSocket.send(JSON.stringify(data))
+    webSocket.onopen = () => webSocket.send(JSON.stringify(data));
 }
 
 
