@@ -1,5 +1,5 @@
-const Socket = require("websocket").server
-const http = require("http")
+const Socket = require("ws").server
+const http = require("https")
 
 
 const server = http.createServer((req, res) => {})
