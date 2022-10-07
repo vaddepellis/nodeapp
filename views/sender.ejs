@@ -47,8 +47,8 @@
     var port = "<%=port%>";
     console.log(port);
     console.log(location.host);
-    
-    const webSocket = new WebSocket(`wss://sk-nodeapp.herokuapp.com:${port}`)
+    // :${port}`
+    const webSocket = new WebSocket(`wss://sk-nodeapp.herokuapp.com/`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
