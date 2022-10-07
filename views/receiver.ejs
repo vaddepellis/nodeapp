@@ -73,7 +73,7 @@ function joinCall() {
     document.getElementById("video-call-div")
     .style.display = "inline"
 
-    navigator.getUserMedia({
+    navigator.mediaDevices.getUserMedia({
         video: {
             frameRate: 24,
             width: {
