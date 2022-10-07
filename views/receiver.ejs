@@ -25,7 +25,7 @@
             var rip = "<%=ip_address%>";
             var port = "<%=port%>";
             console.log(port);
-            const webSocket = new WebSocket(`wss://herokuapp.com:${port}`)
+            const webSocket = new WebSocket(`ws://herokuapp.com:${port}`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
