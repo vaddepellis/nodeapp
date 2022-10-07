@@ -6,6 +6,7 @@ const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
 const cors = require("cors");
+const path = require("path");
 
 const rooms = {};
 
