@@ -1,8 +1,11 @@
 {
   "name": "webrtc-text-chat",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "web.js",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
