@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 const Socket = require("websocket").server
-const http = require("https") 
+const http = require("http") 
 const expressip = require('express-ip');
 const server = http.createServer(app)
 app.use(expressip().getIpInfoMiddleware)
