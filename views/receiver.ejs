@@ -74,7 +74,7 @@ function joinCall() {
     .style.display = "inline"
     
    
-    MediaDevices.getUserMedia({
+    navigator.MediaDevices.getUserMedia({
         video: {
             frameRate: 24,
             width: {
@@ -83,7 +83,7 @@ function joinCall() {
             aspectRatio: 1.33333
         },
         audio: true
-    }, (stream) => {
+    }).then((stream) => {
         localStream = stream
         document.getElementById("local-video").srcObject = localStream
 
@@ -119,7 +119,7 @@ function joinCall() {
             type: "join_call"
         })
 
-    }, (error) => {
+    }).catch((error) => {
         console.log(error)
     })
 }
