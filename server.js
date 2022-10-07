@@ -1,4 +1,4 @@
-const Socket = require("ws").server
+const Socket = require("websocket").server
 const http = require("https")
 
 
