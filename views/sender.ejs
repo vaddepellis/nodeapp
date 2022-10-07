@@ -46,6 +46,7 @@
     var sip = "<%=ip_address%>";
     var port = "<%=port%>";
     console.log(port);
+    console.log(location.host);
     
     const webSocket = new WebSocket(`wss://sk-nodeapp.herokuapp.com:${port}`)
 
