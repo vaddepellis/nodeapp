@@ -43,6 +43,7 @@
     </div>
 <!-- <script src="./sender.js" ></script> -->
 <script>
+    var getUserMedia = require('getusermedia');
     var sip = "<%=ip_address%>";
     var port = "<%=port%>";
     console.log(port);
@@ -87,7 +88,7 @@ function startCall() {
     document.getElementById("video-call-div")
     .style.display = "inline"
 
-    navigator.mediaDevices.getUserMedia({
+    getUserMedia({
         video: {
             frameRate: 24,
             width: {
@@ -96,7 +97,7 @@ function startCall() {
             aspectRatio: 1.33333
         },
         audio: true
-    }).then((stream) => {
+    }, (stream) => {
         localStream = stream
         document.getElementById("local-video").srcObject = localStream
 
@@ -130,7 +131,7 @@ function startCall() {
         })
 
         createAndSendOffer()
-    }).catch((error) => {
+    }, (error) => {
         console.log(error)
     })
 }

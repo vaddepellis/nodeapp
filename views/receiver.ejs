@@ -22,6 +22,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <!-- <script src="./receiver.js"></script> -->
         <script>
+            var getUserMedia = require('getusermedia');
             var rip = "<%=ip_address%>";
             var port = "<%=port%>";
             console.log(port);
@@ -72,9 +73,8 @@ function joinCall() {
 
     document.getElementById("video-call-div")
     .style.display = "inline"
-    
    
-    navigator.MediaDevices.getUserMedia({
+    getUserMedia({
         video: {
             frameRate: 24,
             width: {
@@ -83,7 +83,7 @@ function joinCall() {
             aspectRatio: 1.33333
         },
         audio: true
-    }).then((stream) => {
+    }, (stream) => {
         localStream = stream
         document.getElementById("local-video").srcObject = localStream
 
@@ -119,7 +119,7 @@ function joinCall() {
             type: "join_call"
         })
 
-    }).catch((error) => {
+    }, (error) => {
         console.log(error)
     })
 }
