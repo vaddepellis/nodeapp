@@ -92,7 +92,7 @@ function startCall() {
     'video': true,
     'audio': true
 }
-navigator.mediaDevices.getUserMedia(constraints)
+navigator.mediaDevices.webkitGetUserMedia(constraints)
     .then((stream) => {
         localStream = stream
         document.getElementById("local-video").srcObject = localStream
