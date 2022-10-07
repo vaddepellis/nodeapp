@@ -15,6 +15,6 @@
   },
   "scripts": {
     "start": "node web.js",
-    "postinstall": "cd ./client && yarn"
+    "postinstall": "cd ./client && npm"
   }
 }
