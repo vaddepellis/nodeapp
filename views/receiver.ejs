@@ -28,6 +28,7 @@
             console.log(port);
             // /:${port}
             const webSocket = new WebSocket(`wss://sk-nodeapp.herokuapp.com/`)
+            // const webSocket = new WebSocket(`wss://localhost:4000/`)
 
 webSocket.onmessage = (event) => {
     handleSignallingData(JSON.parse(event.data))
@@ -86,13 +87,12 @@ navigator.mediaDevices.webkitGetUserMedia(constraints)
         let configuration = {
             iceServers: [
                 {
-                    "urls": ["stun:stun.l.google.com:19302", 
-                    "stun:stun1.l.google.com:19302", 
-                    "stun:stun2.l.google.com:19302"]
+                    "urls": ["stun:stun.l.google.com:19302" 
+                    ]
                 }
             ]
         }
-
+        //webkitGetUserMedia
         peerConn = new RTCPeerConnection(configuration)
         peerConn.addStream(localStream)
 
