@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 	res.end()
 })
 app.get('/home',(req,res) =>{
-  res.send('Welcome to home page')
+  res.send('Welcome to Home Page')
 })
 
 // Establishing the port
